@@ -84,6 +84,5 @@ with open(sys.argv[1], 'r') as messages:
         out.write('<p>'+items[3]+'</p>\n')
         out.write('</div>\n')
 
-
 with open(sys.argv[2], 'a') as out:
 	out.write(HTML_Template_End_of_File)
