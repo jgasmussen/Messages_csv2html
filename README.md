@@ -12,7 +12,7 @@ $ sudo chmod +x Messages_csv2html.py
 Finally, run the script using the following syntax:
 ```
 $ python3 Messages_csv_2_html.py [input_filename.csv] [output_filename.html] 
-
+```
 
 FUTURE PLANS AND UPDATES:
 - Add support for Emoji's, gifs, pics, videos, and other File Attachments.
