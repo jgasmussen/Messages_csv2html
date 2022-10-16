@@ -15,7 +15,7 @@ import csv
 HTML_Template = """<!DOCTYPE html>
 <html>
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1,">
 <meta charset="UTF-8">
 <style>
 body {
@@ -25,7 +25,7 @@ body {
 }
 
 .container {
-  border: 2px solid #bbbbbb;
+  border: 2px solid #000000;
   background-color: #ffffff;
   border-radius: 5px;
   padding: 10px;
@@ -33,8 +33,8 @@ body {
 }
 
 .darker {
-  border-color: #bbbbbb;
-  background-color: #0066ff;
+  border-color: #000000;
+  background-color: #0077ff;
   text-align: right
 }
 
@@ -71,24 +71,19 @@ with open(sys.argv[1], 'r') as messages:
     if items[0] == "Incoming":
       with open(sys.argv[2], 'a') as out:
         out.write('<div class="container">') 
-        out.write('<p>')
-        out.write(items[1]+'</p>')
-        out.write('<p>')
-        out.write(items[2]+'</p>')
-        out.write('<p>')
-        out.write(items[3]+'</p>')
-        out.write('</div>')
+        out.write('<p>'+items[1]+'</p>\n')
+        out.write('<p>'+items[2]+'</p>\n')
+        out.write('<p>'+items[3]+'</p>\n')
+        out.write('</div>\n')
   
     elif items[0] == "Outgoing":
       with open(sys.argv[2], 'a') as out:
-        out.write('<div class="container darker">') 
-        out.write('<p>')
-        out.write(items[1]+'</p>')
-        out.write('<p>')
-        out.write(items[2]+'</p>')
-        out.write('<p>')
-        out.write(items[3]+'</p>')
-        out.write('</div>')
+        out.write('<div class="container darker">\n') 
+        out.write('<p>'+items[1]+'</p>\n')
+        out.write('<p>'+items[2]+'</p>\n')
+        out.write('<p>'+items[3]+'</p>\n')
+        out.write('</div>\n')
+
 
 with open(sys.argv[2], 'a') as out:
 	out.write(HTML_Template_End_of_File)
