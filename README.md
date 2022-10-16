@@ -1,4 +1,4 @@
-# csv2html
+# Messages_csv2html
 This python script takes SMS, MMS, Text Messages, & Chats that are stored in .csv file format and converts it to an HTML Message Thread.
 
 First, make sure your .csv file matches the expected fields (Direction, Sender, Message, Time_Local). You can customize the fields by editing lines 61-68.
