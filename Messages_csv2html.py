@@ -66,6 +66,7 @@ with open(sys.argv[1], 'r') as messages:
     Message = row["Message"]
 
     items = [Direction, Sender, Message, Time_local]
+
     if items[0] == "Incoming":
       with open(sys.argv[2], 'a') as out:
         out.write('<div class="container">') 
