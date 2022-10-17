@@ -2,7 +2,7 @@
 
 ######################################################
 #            Messages.csv to HTML Thread             #
-#                 BETA Version 0.1                   #
+#                 BETA Version 0.2                   #
 #----------------------------------------------------#
 #           Written by: John G. Asmussen             #
 #         EGA Technology Specialists, LLC.           #
@@ -18,13 +18,15 @@ HTML_Template = """<!DOCTYPE html>
 <meta name="viewport" content="width=device-width, initial-scale=1,">
 <meta charset="UTF-8">
 <style>
+
 body {
   margin: 0 auto;
   max-width: 800px;
-  padding: 0 20px;
+  padding: 0 10px;
+  background-color: #F0F0F0;
 }
 
-.container {
+.message {
   border: 2px solid #000000;
   background-color: #ffffff;
   border-radius: 5px;
@@ -32,26 +34,25 @@ body {
   margin: 10px 0;
 }
 
-.darker {
+.outgoing {
   border-color: #000000;
   background-color: #0077ff;
-  text-align: right
+  text-align: right;
+  margin-left: 35%;
 }
 
-.container::after {
-  content: "";
-  clear: both;
-  display: table;
+.incoming {
+  margin-right: 35%;
 }
 
 </style>
 </head>
 <body>
 
-<h2>Text Messages</h2>\n"""
+<h2 class="text-bold" style="text-align:center;">Text Messages</h2>\n"""
 
-HTML_Template_End_of_File  = """</body>
-</html>\n"""
+HTML_Template_End_of_File  = """\n<p class="text-bold" style="text-align:center;">Messages_csv2html.py - Version 0.2 - https://github.com/jgasmussen/Messages_csv2html</p>\n<p class="text-bold" style="text-align:center">EGA Technology Specialists, LLC</p></body>\n
+</html>"""
 
 with open(sys.argv[2], 'a') as out:
   out.write(HTML_Template)
@@ -70,7 +71,7 @@ with open(sys.argv[1], 'r') as messages:
 
     if items[0] == "Incoming":
       with open(sys.argv[2], 'a') as out:
-        out.write('<div class="container">') 
+        out.write('<div class="message incoming">\n') 
         out.write('<p>'+items[1]+'</p>\n')
         out.write('<p>'+items[2]+'</p>\n')
         out.write('<p>'+items[3]+'</p>\n')
@@ -78,11 +79,12 @@ with open(sys.argv[1], 'r') as messages:
   
     elif items[0] == "Outgoing":
       with open(sys.argv[2], 'a') as out:
-        out.write('<div class="container darker">\n') 
+        out.write('<div class="message outgoing">\n') 
         out.write('<p>'+items[1]+'</p>\n')
         out.write('<p>'+items[2]+'</p>\n')
         out.write('<p>'+items[3]+'</p>\n')
         out.write('</div>\n')
+
 
 with open(sys.argv[2], 'a') as out:
 	out.write(HTML_Template_End_of_File)
